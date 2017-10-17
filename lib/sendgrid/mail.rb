@@ -143,7 +143,7 @@ module SendGrid
         :text => text,
         :html => html,
         :'x-smtpapi' => smtpapi_json,
-        :headers => headers,
+        :headers => headers.to_json,
         :content => ({":default"=>"0"} unless contents.empty?),
         :files => ({":default"=>"0"} unless attachments.empty? and contents.empty?)
         # If I don't define a default value, I get a Nil error when
